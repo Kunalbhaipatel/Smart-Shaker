@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  imageName: 'shaker-dashboard'
+
+steps:
+- task: Docker@2
+  displayName: Build and push image
+  inputs:
+    command: buildAndPush
+    containerRegistry: '<your-azure-container-registry-service-connection>'
+    repository: '$(imageName)'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
