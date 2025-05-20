@@ -10,6 +10,7 @@ import plotly.express as px
 
 # --- Page Configuration ---
 st.set_page_config(page_title="Shaker Dashboard", page_icon="📈", layout="wide")
+
 # --- Header with Branding ---
 st.image("Prodigy_IQ_logo.png", width=200)
 st.markdown("""
