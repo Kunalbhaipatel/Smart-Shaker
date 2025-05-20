@@ -10,8 +10,6 @@ import plotly.express as px
 
 # --- Page Configuration ---
 st.set_page_config(page_title="Shaker Dashboard", page_icon="📈", layout="wide")
-st.set_option("server.maxUploadSize", 500)  # Increase file upload limit to 500MB
-
 # --- Header with Branding ---
 st.image("Prodigy_IQ_logo.png", width=200)
 st.markdown("""
