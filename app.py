@@ -10,7 +10,7 @@ import plotly.express as px
 
 # --- Page Configuration ---
 st.set_page_config(page_title="Shaker Dashboard", page_icon="📈", layout="wide")
-# Increase file upload limit to 500MB
+st.set_option("server.maxUploadSize", 500)  # Increase file upload limit to 500MB
 
 # --- Header with Branding ---
 st.image("Prodigy_IQ_logo.png", width=200)
@@ -32,7 +32,7 @@ st.markdown("""
 # --- Load Data ---
 @st.cache_data
 def load_data(path):
-    return pl.read_csv(path, dtypes=pl.Float64, ignore_errors=True)
+    return pl.read_csv(path, infer_schema_length=10000, ignore_errors=True)
 
 uploaded_file = st.file_uploader("📁 Upload Drilling CSV (up to 500MB)", type=["csv"])
 if uploaded_file:
